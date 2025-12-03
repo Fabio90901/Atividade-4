@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão de Chamados</title>
+    <link rel="stylesheet" href="at4.css">
+<body>
+    <div class="container">
+        <header>
+           
+            <p class="subtitle">Central de atendimentos - Direcionamento para Sustentação e Projetos</p>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Total de Chamados</h3>
+                <div class="stat-number" id="total-chamados">0</div>
+            </div>
+            <div class="stat-box">
+                <h3>Chamados Abertos</h3>
+                <div class="stat-number" id="chamados-abertos">0</div>
+            </div>
+            <div class="stat-box">
+                <h3>Direcionados à Sustentação</h3>
+                <div class="stat-number" id="chamados-sustentacao">0</div>
+            </div>
+            <div class="stat-box">
+                <h3>Direcionados à Projetos</h3>
+                <div class="stat-number" id="chamados-projetos">0</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2>Registrar Novo Chamado</h2>
+                <form id="form-chamado">
+                    <div class="form-group">
+                        <label for="titulo">Título do Chamado *</label>
+                        <input type="text" id="titulo" required placeholder="Ex: Erro ao processar pagamento">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descricao">Descrição *</label>
+                        <textarea id="descricao" required placeholder="Descreva detalhadamente o problema ou melhoria..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipo">Tipo do Chamado *</label>
+                        <select id="tipo" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="BUG">BUG</option>
+                            <option value="MELHORIA">MELHORIA</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="melhoria-group" style="display: none;">
+                        <label for="tamanho-melhoria">Tamanho da Melhoria *</label>
+                        <select id="tamanho-melhoria">
+                            <option value="PEQUENA">Pequena Melhoria</option>
+                            <option value="GRANDE">Grande Melhoria</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="solicitante">Solicitante *</label>
+                        <input type="text" id="solicitante" required placeholder="Ex: João Silva">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Registrar Chamado</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2>Chamados Registrados</h2>
+                
+                <div class="filter-container">
+                    <select class="filter-select" id="filter-tipo">
+                        <option value="TODOS">Todos os tipos</option>
+                        <option value="BUG">BUG</option>
+                        <option value="MELHORIA">Melhoria</option>
+                        <option value="GRANDE_MELHORIA">Grande Melhoria</option>
+                    </select>
+                    
+                    <select class="filter-select" id="filter-time">
+                        <option value="TODOS">Todos os times</option>
+                        <option value="SUSTENTACAO">Time de Sustentação</option>
+                        <option value="PROJETOS">Time de Projetos</option>
+                    </select>
+                    
+                    <select class="filter-select" id="filter-status">
+                        <option value="TODOS">Todos os status</option>
+                        <option value="ABERTO">Abertos</option>
+                        <option value="FECHADO">Fechados</option>
+                    </select>
+                </div>
+                
+                <div id="lista-chamados" class="chamados-container">
+                    <!-- Lista de chamados será gerada aqui -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal de confirmação para exclusão -->
+        <div id="modal-excluir" class="modal">
+            <div class="modal-content">
+                <h3>Confirmar Exclusão</h3>
+                <p id="modal-mensagem">Tem certeza que deseja excluir este chamado?</p>
+                <div class="modal-buttons">
+                    <button id="btn-cancelar-exclusao" class="btn btn-warning">Cancelar</button>
+                    <button id="btn-confirmar-exclusao" class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+        
+       
+    </div>
+
+    <script src="at4.js">
+       
+    </script>
+</body>
+</html>
